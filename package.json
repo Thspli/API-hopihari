@@ -1,0 +1,27 @@
+{
+  "name": "api-hopihari",
+  "version": "1.0.0",
+  "description": "Uma API para o projeto github - SENAI",
+  "main": "server.js",
+  "scripts": {
+    "start": "npx nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thspli/API-hopihari.git"
+  },
+  "author": "Thspli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thspli/API-hopihari/issues"
+  },
+  "homepage": "https://github.com/Thspli/API-hopihari#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "http": "^0.0.1-security"
+  }
+}
