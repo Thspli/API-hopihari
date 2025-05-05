@@ -31,12 +31,15 @@ exports.cadastrarUsuarios = async (req, res) => {
     try {
 
         const resultado = await mysql.execute(
-            `insert into users(name, email, password)
-            values(?, ?, ?)`,
+            `INSERT INTO users(first_name, last_name, email, password, birth_date, phone)
+Values (?, ?, ?, ?, ?, ?);`,
             [
-                req.body.name,
+                req.body.first_name,
+                req.body.last_name,
                 req.body.email,
-                req.body.password
+                req.body.password,
+                req.body.birth_date,
+                req.body.phone
             ]
         )
         return res.status(201).send({
