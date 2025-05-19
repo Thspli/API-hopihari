@@ -24,5 +24,30 @@ DELIMITER $$
 	END $$
 DELIMITER ;		
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+USE hopi_hari_db;
+
+desc hopi_hari_db.lines;
+
+SELECT * FROM users; #5
+SELECT * FROM rides; #8
+SELECT * FROM hopi_hari_db.lines;
+select * from notifications;
+
+insert into hopi_hari_db.lines (id_users, id_rides) values (8, 9);
+
+select waiting_time from rides where id_rides = 9;
+SELECT count(id_users) from hopi_hari_db.lines where id_rides = 9;
+
+select
+(select waiting_time from rides where id = 9) *
+(select count(id_users) from hopi_hari_db.lines where id_rides = 9)
+AS total_wait_time;
+
+DESC notifications;
+insert into notifications (description, id_rides, id_users, status)
+VALUES (concat(total_wait_time, " minutos de espera para o brinquedo"), 9, 7, TRUE);
+
 
 
