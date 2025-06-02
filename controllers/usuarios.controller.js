@@ -8,14 +8,20 @@ exports.attUsuarios = async (req, res) => {
         console.log(idUsuario, req.body)
         const resultado = await mysql.execute(
             `update users
-	   set name = ?,
-		email = ?,
-		password = ?
-     Where id = 1;`,
+	   set first_name = ?,
+		last_name = ?,
+        email = ?,
+		password = ?,
+        birth_date = ?,
+        phone = ?
+     Where id = ?;`,
             [
-                req.body.name,
+                req.body.first_name,
+                req.body.last_name,
                 req.body.email,
-                req.body.password,
+                hash,
+                req.body.birth_date,
+                req.body.phone,
                 idUsuario
             ]
         )
