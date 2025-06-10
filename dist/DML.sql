@@ -1,62 +1,3 @@
-{   
-    "first_name":"Leonardo",
-    "last_name":"Marcheti",
-    "email":"leo@gmail.com",
-    "password":"12345",
-    "birth_date":"2009-02-10",
-    "phone":"14999999999"
-}
-
-{
-    "first_name": "Sarah",
-    "last_name": "de Jesus",
-    "email": "sarah@gmail.com",
-    "password": "12345",
-    "birth_date": "2009-02-17",
-    "phone": "14999999999"
-}
-
-{
-    "first_name": "Thalisson",
-    "last_name": "Douglas",
-    "email": "tales@gmail.com",
-    "password": "12345",
-    "birth_date": "2009-06-17",
-    "phone": "14999999999"
-}
-
-INSERT INTO rides (name, waiting_time, status, area) VALUES
-('Montanha Mágica', 35, 'Muito Movimentado', 'A'),
-('Carrossel Encantado', 15, 'Normal', 'B'),
-('Roda Gigante Celestial', 32, 'Normal', 'C');
-
-INSERT INTO `lines`(id_user, id_ride) VALUES
-('7','7'),
-('8','7'),
-('8','8'),
-('9','8'),
-('7','9'),
-('9','9');
-
-			SELECT rides.name AS nome_do_brinquedo,
-				   `lines`.*
-			  FROM `lines`
-		INNER JOIN rides
-				ON rides.id =`lines`.id_ride;
-                
-			SELECT rides.name AS nome_do_brinquedo,
-				   users.first_name AS nome,
-				   `lines`.*
-			  FROM `lines` 
-		INNER JOIN rides
-				ON rides.id =`lines`.id_ride
-		INNER JOIN users
-				ON users.id =`lines`.id_user
-             WHERE `lines`.id_ride = 7;
-
-
-
-
 use hopi_hari_db;
 INSERT INTO areas (name) VALUES 
 ("Kaminda"),
@@ -238,3 +179,58 @@ VALUES ("Speedi Kid", 2, "Aberto", (SELECT id FROM areas WHERE name = "Infantasi
 -- Doremí - Infantasia
 INSERT INTO rides(name, waiting_time, status, id_areas)
 VALUES ("Doremí", 3, "Aberto", (SELECT id FROM areas WHERE name = "Infantasia"));
+
+USE hopi_hari_db;
+
+-- Atrações com imagens próprias
+UPDATE rides SET image = 'atronavi.jpg' WHERE name = 'Atronavi';
+UPDATE rides SET image = 'bugabalum.jpg' WHERE name = 'Bugabalum';
+UPDATE rides SET image = 'dispenkito.jpg' WHERE name = 'Dispenkito';
+UPDATE rides SET image = 'ekatomb.jpg' WHERE name = 'Ekatomb';
+UPDATE rides SET image = 'evolution.jpg' WHERE name = 'Evolution';
+UPDATE rides SET image = 'giralata.jpg' WHERE name = 'Giralata';
+UPDATE rides SET image = 'girandaMundi.jpg' WHERE name = 'Giranda Mundi';
+UPDATE rides SET image = 'granPalaz.jpg' WHERE name = 'Gran Palaz';
+UPDATE rides SET image = 'hadikali.jpg' WHERE name = 'Hadikali';
+UPDATE rides SET image = 'jogaki.jpg' WHERE name = 'Jogakí';
+UPDATE rides SET image = 'kastel.jpg' WHERE name = 'Kastel di Lendas';
+UPDATE rides SET image = 'katakumb.jpg' WHERE name = 'Katakumb';
+UPDATE rides SET image = 'katapul.jpg' WHERE name = 'Katapul';
+UPDATE rides SET image = 'klapi.jpg' WHERE name = 'Klapi Klapi';
+UPDATE rides SET image = 'Le Voyage.jpg' WHERE name = 'Le Voyage';
+UPDATE rides SET image = 'Montezum.jpg' WHERE name = 'Montezum';
+UPDATE rides SET image = 'Parangolé.jpg' WHERE name = 'Parangolé';
+UPDATE rides SET image = 'pokoto.jpg' WHERE name = 'Pokoto';
+UPDATE rides SET image = 'Rango-DJango.jpg' WHERE name = 'Rango-Django';
+UPDATE rides SET image = 'Rio Bravo.jpg' WHERE name = 'Rio Bravo';
+UPDATE rides SET image = 'saloon.jpg' WHERE name = 'Saloon';
+UPDATE rides SET image = 'simlakron.jpg' WHERE name = 'Simulákron';
+UPDATE rides SET image = 'spleshi.jpg' WHERE name = 'Spleshi';
+UPDATE rides SET image = 'theatro.jpg' WHERE name = 'Theatro di Kaminda';
+UPDATE rides SET image = 'toka.jpg' WHERE name = 'Toka di Urso';
+UPDATE rides SET image = 'vambate.jpg' WHERE name = 'Vambatê';
+UPDATE rides SET image = 'vulaviking.jpg' WHERE name = 'Vulaviking';
+UPDATE rides SET image = 'vurang.jpg' WHERE name = 'Vurang';
+
+-- Reutilização de imagens SEM repetir uma mesma imagem para mais de uma atração
+
+UPDATE rides SET image = 'kastel.jpg' WHERE name = 'Cine 180';
+UPDATE rides SET image = 'granPalaz.jpg' WHERE name = 'Espetáculo de Rua';
+UPDATE rides SET image = 'klapi.jpg' WHERE name = 'Infocentro';
+UPDATE rides SET image = 'theatro.jpg' WHERE name = 'Ghosti Hotel';
+UPDATE rides SET image = 'vambate.jpg' WHERE name = 'Saloon Show';
+UPDATE rides SET image = 'Le Voyage.jpg' WHERE name = 'Carrossel di Billie';
+UPDATE rides SET image = 'bugabalum.jpg' WHERE name = 'Hora do Horror Kids';
+UPDATE rides SET image = 'pokoto.jpg' WHERE name = 'Super Herói Show';
+UPDATE rides SET image = 'jogaki.jpg' WHERE name = 'The Looney Tunes Show';
+UPDATE rides SET image = 'katapul.jpg' WHERE name = 'Trukes di Kaminda';
+UPDATE rides SET image = 'parangolé.jpg' WHERE name = 'Minimontanha';
+UPDATE rides SET image = 'dispenkito.jpg' WHERE name = 'Trenzinho';
+UPDATE rides SET image = 'ekatomb.jpg' WHERE name = 'Crazy Wagon';
+UPDATE rides SET image = 'giralata.jpg' WHERE name = 'Old West';
+UPDATE rides SET image = 'girandaMundi.jpg' WHERE name = 'West River Hotel';
+UPDATE rides SET image = 'saloon.jpg' WHERE name = 'La Tour Eiffel';
+
+-- Atrações extras já com imagens válidas
+UPDATE rides SET image = 'Rango-DJango.jpg' WHERE name = 'Speedi Kid';
+UPDATE rides SET image = 'jogaki.jpg' WHERE name = 'Doremí';
